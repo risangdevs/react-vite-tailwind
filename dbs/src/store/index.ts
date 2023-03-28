@@ -20,9 +20,10 @@ const initialState: State = {
     ]
 }
 
-export const addContact = () => {
+export const addContact = (value:contact) => {
     return {
-        type: 'ADD_CONTACT'
+        type: 'ADD_CONTACT',
+        payload: value
     };
 };
 type Action = { type: string, payload: contact }

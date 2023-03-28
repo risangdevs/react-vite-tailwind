@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState } from "react";
 interface multipleInputProps {
   label: string;
   type: string;

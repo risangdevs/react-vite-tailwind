@@ -5,6 +5,10 @@ import { Dialog } from "@headlessui/react";
 import Input from "./Input";
 import { ErrorText } from "./ErrorText";
 import { MultipleInput } from "./MultipleInput";
+import { MultipleInputFM } from "./MultipleInputFM";
+import { useDispatch } from "react-redux";
+import { addContact } from "../store";
+import { contact } from "../types/contacts";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -25,20 +29,23 @@ interface formikFormProps {
   setIsOpen: any;
   isOpen: boolean;
 }
-const initialValues = {
+const initialValues: contact = {
+  id: 1,
   name: "",
   address: "",
   eKTP: "",
   job: "",
   dob: "",
   phone: [""],
-};
-
-const onSubmit = (values: any) => {
-  console.log(values);
+  familyMember: [{ name: "", dob: "", status: "" }],
 };
 
 const FormikForm = ({ isOpen, setIsOpen }: formikFormProps) => {
+  const dispatch = useDispatch();
+  const onSubmit = (values: contact) => {
+    dispatch(addContact(values));
+    setIsOpen(!isOpen);
+  };
   return (
     <Formik
       initialValues={initialValues}
@@ -109,7 +116,12 @@ const FormikForm = ({ isOpen, setIsOpen }: formikFormProps) => {
                 <ErrorMessage component={ErrorText} name="phone" />
               </div>
             </div>
-
+            <div className="">
+              <MultipleInputFM
+                label="Family Member"
+                handleChange={handleChange}
+              />
+            </div>
             <div className="mt-5 sm:mt-6 flex flex-row space-x-4">
               <button
                 type="button"

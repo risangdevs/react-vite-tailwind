@@ -10,8 +10,8 @@ export const TableBody = ({ people }: tableBodyProps) => {
   return (
     <tbody className="divide-y divide-gray-200">
       {people &&
-        people.map((person) => (
-          <tr key={person.id}>
+        people.map((person,index) => (
+          <tr key={index}>
             <td className="whitespace-nowrap py-4 pl-4 pr-3 text-start text-sm font-medium text-gray-900 sm:pl-0">
               {person.name}
             </td>
