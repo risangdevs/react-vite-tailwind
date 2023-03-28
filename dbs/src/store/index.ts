@@ -1,7 +1,10 @@
 import { createStore } from "redux"
-import { contact } from "../types/contacts";
+import { contact, familyMember } from "../types/contacts";
 
-const initialState = {
+interface State {
+    contacts: contact[]
+}
+const initialState: State = {
     contacts: [
         {
             id: 1, name: "Agus",
@@ -22,19 +25,15 @@ export const addContact = () => {
         type: 'ADD_CONTACT'
     };
 };
-interface action {
-    type: string,
-    payload: contact
-}
-const reducer = (state = initialState, action: action) => {
+type Action = { type: string, payload: contact }
+
+const reducer = (state: State = initialState, action: Action): State => {
     switch (action.type) {
         case 'ADD_CONTACT':
-            return {
-                ...state,
-                contacts: state.contacts.push(action.payload)
-            };
+            return { ...state, contacts: [...state.contacts, action.payload] }
+
         default:
-            return state;
+            return state
     }
 };
 const store = createStore(reducer)

@@ -12,22 +12,37 @@ export const TableHeader = () => {
           scope="col"
           className="py-3.5 px-3 text-left text-sm font-semibold text-gray-900"
         >
-          Title
+          eKTP
         </th>
         <th
           scope="col"
           className="py-3.5 px-3 text-left text-sm font-semibold text-gray-900"
         >
-          Email
+          Address
         </th>
         <th
           scope="col"
           className="py-3.5 px-3 text-left text-sm font-semibold text-gray-900"
         >
-          Role
+          Job
         </th>
-        <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-0">
-          <span className="sr-only">Edit</span>
+        <th
+          scope="col"
+          className="py-3.5 px-3 text-left text-sm font-semibold text-gray-900"
+        >
+          Date of Birth
+        </th>
+        <th
+          scope="col"
+          className="py-3.5 px-3 text-left text-sm font-semibold text-gray-900"
+        >
+          Phone
+        </th>
+        <th
+          scope="col"
+          className="py-3.5 px-3 text-left text-sm font-semibold text-gray-900"
+        >
+          Family
         </th>
       </tr>
     </thead>
