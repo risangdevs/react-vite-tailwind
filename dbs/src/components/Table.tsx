@@ -1,6 +1,7 @@
+import { contact } from "../types/contacts";
 import { TableBody, TableHeader } from "./index";
 export interface tableProps {
-  people?: any[];
+  people?: contact[];
 }
 export const Table = ({ people }: tableProps) => {
   return (

@@ -1,20 +1,20 @@
-import {Title,Table} from "./index";
+import { useState } from "react";
+import { contact } from "../types/contacts";
+import { Title, Table } from "./index";
 
-const people = [
-  {
-    name: "Lindsay Walton",
-    title: "Front-end Developer",
-    email: "lindsay.walton@example.com",
-    role: "Member",
-  },
-  // More people...
-];
+import { useDispatch, useSelector } from "react-redux";
 
+interface appState {
+  contacts: contact[];
+}
 export default function Content() {
+  const { contacts }: { contacts: contact[] } = useSelector(
+    (state: appState) => state
+  );
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <Title />
-      <Table people={people} />
+      <Table people={contacts} />
     </div>
   );
 }
