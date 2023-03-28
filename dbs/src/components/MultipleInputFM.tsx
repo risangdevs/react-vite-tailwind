@@ -39,7 +39,7 @@ export const MultipleInputFM = ({
         </button>
       </div>
       <div className="grid grid-cols-1">
-        <table>
+        <table className="table-auto">
           <thead>
             <tr>
               <th
@@ -67,26 +67,27 @@ export const MultipleInputFM = ({
               <tr className="" key={i}>
                 <td>
                   <input
-                    className="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-200 sm:text-sm sm:leading-6"
+                    className="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-200 sm:text-sm sm:leading-6 h-10"
                     type="text"
                     name={`familyMember.${i}.name`}
-                    onChange={(e)=>handleChange(e)}
+                    onChange={(e) => handleChange(e)}
                   />
                 </td>
                 <td>
                   <input
-                    className="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-200 sm:text-sm sm:leading-6"
+                    className="pl-2 pr-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-200 sm:text-sm sm:leading-6 h-10"
                     type="date"
                     name={`familyMember.${i}.dob`}
-                    onChange={(e)=>handleChange(e)}
+                    onChange={(e) => handleChange(e)}
                   />
                 </td>
                 <td>
                   <select
-                    className="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-200 sm:text-sm sm:leading-6"
+                    className="pl-2 block w-full  rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-200 sm:text-sm h-10"
                     name={`familyMember.${i}.status`}
-                    onChange={(e)=>handleChange(e)}
+                    onChange={(e) => handleChange(e)}
                   >
+                    <option value={"-"}>Select Relation</option>
                     <option value="brother">brother</option>
                     <option value="sister">sister</option>
                     <option value="parent">parent</option>
