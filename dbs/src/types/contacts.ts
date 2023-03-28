@@ -8,6 +8,6 @@ export type contact = {
     address: string,
     job: string,
     dob: string,
-    phone: string,
+    phone: string[],
     familyMember: familyMember[]
 }

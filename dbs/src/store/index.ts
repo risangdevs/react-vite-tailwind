@@ -11,7 +11,7 @@ const initialState: State = {
             eKTP: "320410123124",
             address: "Jln. Kembang No.23",
             job: "Manager", dob: "12-12-1990",
-            phone: "08123123123",
+            phone: ["08123123123"],
             familyMember: [
                 { name: "Tara", dob: "01-01-1993", status: "spouse" },
                 { name: "Zara", dob: "01-02-1995", status: "sister" },

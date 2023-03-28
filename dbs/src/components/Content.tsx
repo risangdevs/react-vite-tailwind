@@ -11,7 +11,6 @@ export default function Content() {
   const { contacts }: { contacts: contact[] } = useSelector(
     (state: appState) => state
   );
-  console.log(contacts)
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <Title />

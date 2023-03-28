@@ -28,7 +28,7 @@ export const TableBody = ({ people }: tableBodyProps) => {
               {person.dob}
             </td>
             <td className="whitespace-nowrap py-4 px-3 text-start text-sm text-gray-500">
-              {person.phone}
+              {person.phone[0]||"N/A"}
             </td>
             <td className="relative whitespace-nowrap text-start py-4 pl-3 pr-4  text-sm font-medium sm:pr-0">
               <button
