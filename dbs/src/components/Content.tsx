@@ -1,4 +1,4 @@
-import TableBody from "./TableBody";
+import Table from "./Table";
 import Title from "./Title";
 
 const people = [
@@ -15,7 +15,7 @@ export default function Content() {
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <Title />
-      <TableBody people={people} />
+      <Table people={people} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
-export interface tableBodyProps {
+export interface tableProps {
   people?: any[];
 }
-export default function TableBody({ people }: tableBodyProps) {
+export default function Table({ people }: tableProps) {
   return (
     <div className="mt-8 flow-root">
       <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
