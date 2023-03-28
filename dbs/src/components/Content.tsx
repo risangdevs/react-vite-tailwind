@@ -1,5 +1,4 @@
-import Table from "./Table";
-import Title from "./Title";
+import {Title,Table} from "./index";
 
 const people = [
   {
