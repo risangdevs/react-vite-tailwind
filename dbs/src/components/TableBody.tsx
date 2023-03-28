@@ -1,9 +1,12 @@
-import { contact } from "../types/contacts";
-
+import { contact, familyMember } from "../types/contacts";
+import { FamilyModal } from "./FamilyModal";
+import { useState } from "react";
 export interface tableBodyProps {
   people?: contact[];
 }
 export const TableBody = ({ people }: tableBodyProps) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [familyMember, setFamilyMember] = useState<familyMember[]>();
   return (
     <tbody className="divide-y divide-gray-200">
       {people &&
@@ -28,12 +31,24 @@ export const TableBody = ({ people }: tableBodyProps) => {
               {person.phone}
             </td>
             <td className="relative whitespace-nowrap text-start py-4 pl-3 pr-4  text-sm font-medium sm:pr-0">
-              <button type="button" className="text-indigo-600 hover:text-indigo-900">
+              <button
+                type="button"
+                className="text-indigo-600 hover:text-indigo-900"
+                onClick={() => {
+                  setFamilyMember(person.familyMember);
+                  setIsOpen(!isOpen);
+                }}
+              >
                 Show ({person.familyMember.length})
               </button>
             </td>
           </tr>
         ))}
+      <FamilyModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        familyMember={familyMember}
+      />
     </tbody>
   );
 };
