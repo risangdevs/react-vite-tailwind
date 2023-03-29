@@ -33,11 +33,12 @@ export const TableBody = ({ people }: tableBodyProps) => {
             <td className="relative whitespace-nowrap text-start py-4 pl-3 pr-4  text-sm font-medium sm:pr-0">
               <button
                 type="button"
-                className="text-indigo-600 hover:text-indigo-900"
+                className="text-indigo-600 hover:text-indigo-900 disabled:text-gray-400"
                 onClick={() => {
                   setFamilyMember(person.familyMember);
                   setIsOpen(!isOpen);
                 }}
+                disabled={!person.familyMember.length}
               >
                 Show ({person.familyMember.length})
               </button>

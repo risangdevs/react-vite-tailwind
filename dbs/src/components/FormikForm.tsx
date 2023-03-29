@@ -8,7 +8,7 @@ import { MultipleInput } from "./MultipleInput";
 import { MultipleInputFM } from "./MultipleInputFM";
 import { useDispatch } from "react-redux";
 import { addContact } from "../store";
-import { contact } from "../types/contacts";
+import { contact, familyMember } from "../types/contacts";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -21,6 +21,29 @@ const validationSchema = Yup.object().shape({
     .test("validity", "Please Insert Phone Number", (val, context) => {
       if (!val[0]) {
         return false;
+      }
+      return true;
+    }),
+  familyMember: Yup.array()
+    .test("dob", "Please Insert member date of birth", (val, context) => {
+      if (val) {
+        for (let i = 0; i < val.length; i++) {
+          if (val[i].name && !val[i].dob) {
+            return false;
+          }
+        }
+        return true;
+      }
+      return true;
+    })
+    .test("validity", "Please select relation", (val, context) => {
+      if (val) {
+        for (let i = 0; i < val.length; i++) {
+          if (val[i].name && !val[i].status) {
+            return false;
+          }
+        }
+        return true;
       }
       return true;
     }),
@@ -42,8 +65,13 @@ const initialValues: contact = {
 
 const FormikForm = ({ isOpen, setIsOpen }: formikFormProps) => {
   const dispatch = useDispatch();
+  const trimFamilyMember=(contact:contact)=>{
+    const trimmed=contact.familyMember.filter(e=>e.name)
+    return {...contact,familyMember:trimmed}
+  }
   const onSubmit = (values: contact) => {
-    dispatch(addContact(values));
+    let newValues=trimFamilyMember(values)
+    dispatch(addContact(newValues));
     setIsOpen(!isOpen);
   };
   return (
@@ -121,6 +149,7 @@ const FormikForm = ({ isOpen, setIsOpen }: formikFormProps) => {
                 label="Family Member"
                 handleChange={handleChange}
               />
+              <ErrorMessage component={ErrorText} name="familyMember" />
             </div>
             <div className="mt-5 sm:mt-6 flex flex-row space-x-4">
               <button
